@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{{ url_for('static', filename='output.css') }}" rel="stylesheet">
+  <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+<body>
+  <div class="flex flex-col h-screen">
+    <div class="flex bg-red-500 h-12 items-center">
+      <div class="flex-1 ml-5">
+        <a class="text-white mx-3 text-lg" href="/">Home</a>
+      </div>
+      <div class="flex mr-5">
+        <a class="text-white mx-3 text-lg" href="/login">Login</a>
+        <a class="text-white mx-3 text-lg" href="/signup">Sign Up</a>
+      </div>
+    </div>
+    <div class="flex-1">
+      <div class="p-5">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
