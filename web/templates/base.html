@@ -19,11 +19,22 @@
         <a class="text-white mx-3 text-lg" href="/signup">Sign Up</a>
       </div>
     </div>
-    <div class="flex-1">
-      <div class="p-5">
-        {% block content %}
-        {% endblock %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="flex bg-red-100 h-12 w-1/4 self-center rounded-md mt-5 justify-center items-center">
+      <div class="text-red-700 font-semibold text-center">
+        {{ message }}
       </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}    
+    <div class="flex-1">
+      {% block content %}
+      {% endblock %}
     </div>
   </div>
 </body>
